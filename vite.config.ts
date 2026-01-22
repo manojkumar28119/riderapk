@@ -1,14 +1,15 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
-import path from "path";
+import { VitePWA } from "vite-plugin-pwa";
+import path from "node:path";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, path.resolve(__dirname, "src/config"));
   const envWithStringifiedValues = Object.fromEntries(
     Object.entries(env)
       .filter(([key]) => key.startsWith("VITE_"))
-      .map(([key, value]) => [`import.meta.env.${key}`, JSON.stringify(value)])
+      .map(([key, value]) => [`import.meta.env.${key}`, JSON.stringify(value)]),
   );
 
   return {
@@ -25,6 +26,42 @@ export default defineConfig(({ mode }) => {
           rules: {
             "@typescript-eslint/no-explicit-any": "off",
           },
+        },
+      }),
+      VitePWA({
+        registerType: "autoUpdate", // auto update SW
+        injectRegister: "auto",
+        strategies: "generateSW", // Changed from injectManifest to generateSW
+        devOptions: {
+          enabled: true,
+        },
+        manifest: {
+          name: "Rider App",
+          short_name: "Rider",
+          description: "Fast and reliable rider app",
+          theme_color: "#ffffff",
+          background_color: "#ffffff",
+          start_url: "/",
+          display: "standalone",
+          orientation: "portrait",
+          icons: [
+            {
+              src: "/src/assets/images/Logo.jpg",
+              sizes: "192x192",
+              type: "image/jpeg",
+            },
+            {
+              src: "/src/assets/images/Logo.jpg",
+              sizes: "512x512",
+              type: "image/jpeg",
+            },
+            {
+              src: "/src/assets/images/Logo.jpg",
+              sizes: "512x512",
+              type: "image/jpeg",
+              purpose: "maskable",
+            },
+          ],
         },
       }),
     ],
