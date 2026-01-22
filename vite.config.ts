@@ -29,40 +29,43 @@ export default defineConfig(({ mode }) => {
         },
       }),
       VitePWA({
-        registerType: "autoUpdate", // auto update SW
-        injectRegister: "auto",
-        strategies: "generateSW", // Changed from injectManifest to generateSW
-        devOptions: {
-          enabled: true,
-        },
+        registerType: "autoUpdate",
+        includeAssets: ["logo192x192.png","logo512x512.png","logo1024x1024.png"],
         manifest: {
-          name: "Rider App",
+          name: "Unitedmovers Rider App",
           short_name: "Rider",
           description: "Fast and reliable rider app",
           theme_color: "#ffffff",
           background_color: "#ffffff",
-          start_url: "/",
           display: "standalone",
+          scope: "/",
+          start_url: "/",
+          id: "/",
           orientation: "portrait",
           icons: [
             {
-              src: "/src/assets/images/Logo.jpg",
+              src: "logo192x192.png",
               sizes: "192x192",
-              type: "image/jpeg",
+              type: "image/png",
+              purpose: "any",
             },
             {
-              src: "/src/assets/images/Logo.jpg",
+              src: "logo512x512.png",
               sizes: "512x512",
-              type: "image/jpeg",
+              type: "image/png",
+              purpose: "any",
             },
             {
-              src: "/src/assets/images/Logo.jpg",
-              sizes: "512x512",
-              type: "image/jpeg",
+              src: "logo1024x1024.png",
+              sizes: "1024x1024",
+              type: "image/png",
               purpose: "maskable",
             },
           ],
         },
+        devOptions: {
+          enabled: true,
+        }
       }),
     ],
     define: envWithStringifiedValues,
