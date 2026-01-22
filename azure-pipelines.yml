@@ -1,0 +1,37 @@
+trigger:
+  branches:
+    include:
+      - release/*   # dev & qa release branches
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm cache clean --force
+    rm -rf node_modules package-lock.json
+    npm install --legacy-peer-deps
+    npm install @rollup/rollup-linux-x64-gnu --save-optional
+  displayName: 'Install Dependencies'
+
+- script: |
+    export NODE_ENV=production && npm run build:dev
+  displayName: 'Build React App'
+
+- script: |
+    # Verify build output by listing the contents of the dist folder
+    echo "Listing the contents of the dist folder:"
+    ls -R dist/
+  displayName: 'Verify Build Output'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'dist/'
+    artifact: build
+    publishLocation: 'pipeline'
+  displayName: 'Publish Build Artifact'

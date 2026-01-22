@@ -1,0 +1,81 @@
+{
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "telugu": "Telugu",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "create": "Create",
+    "update": "Update"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "reports": "Reports",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "nav": {
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "overview": "Overview",
+    "analytics": "Analytics"
+  },
+  "settings":{
+    "title": "Settings"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "phoneNumber": "Phone Number",
+    "confirmPassword": "Confirm Password",
+    "newPassword": "New Password",
+    "forgotPasswordLink": "Forgot password?",
+    "signInButton": "Sign In",
+    "signUpButton": "Sign Up",
+    "signingUp": "Signing Up...",
+    "signIn": "Sign In",
+    "acceptTermsText": "I agree to the",
+    "termsAndConditions": "Terms and Conditions",
+    "alreadyHaveAccount": "Already have an account?",
+    "submit": "Submit",
+    "reset": "Reset Password",
+    "verify": "Verify",
+    "otpInputLabel": "Enter the OTP code",
+    "contact": "Didn't receive the code?",
+    "resendCode": "Resend Code",
+    "backToSignin": "Back to",
+    "signInPage": {
+      "title": "Sign In",
+      "description": "Sign in to your account to continue"
+    },
+    "signUp": {
+      "title": "Create Your Account",
+      "description": "Sign up to get started",
+      "linkExpireDescription": "This invitation link has expired. Please contact your administrator for a new invitation."
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "Enter your email to reset your password"
+    },
+    "otpVerification": {
+      "title": "Verify Your Email",
+      "description": "We've sent a 6-digit code to {{email}}. Enter it below to continue."
+    },
+    "resetPassword": {
+      "title": "Reset Your Password",
+      "description": "Create a new password for your account"
+    }
+  }
+}

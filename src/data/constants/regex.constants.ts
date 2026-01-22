@@ -1,0 +1,16 @@
+export const regexExp = {
+  CheckLowerCase: /[a-z]/,
+  CheckUpperCase: /[A-Z]/,
+  CheckNumber: /[0-9]/,
+  CheckSpecialChar: /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/,
+  CheckMinLength: /^.{8,128}$/,
+  PasswordRegex : /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=[\]{};':"\\|,.<>/?`~])[A-Za-z\d!@#$%^&*()_\-+=[\]{};':"\\|,.<>/?`~]{8,128}$/,
+  CheckPhoneNumberLength: /^[0-9]{10}$/,
+  CheckPhoneNumber: /^(?:\+91|91)?[6-9]\d{9}$/,
+  checkAlphabetsOnly: /^[A-Za-z\s]+$/,
+  checkVendorCode: /^UM-VEN/,
+  checkAlphanumeric: /^[A-Za-z0-9\s]+$/,
+  checkAlphanumericNoNumbersOnly: /^(?!^[0-9\s]+$)[A-Za-z0-9\s]+$/,
+  checkGSTIN: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/,
+  checkZipCode: /^[1-9][0-9]{5}$/,
+};
